@@ -1,0 +1,47 @@
+BIRT parameter handling in DataSets presents a few challenges.  Particularly when working with multi-select parameters.
+This function simplifies the use of parameters in BIRT ODA DataSets.
+Using this function you no longer need to bind your parameters on a separate tab,
+and using multi-select parameters is as easy as writing some simple SQL.
+Finally, using this function you can use the same parameter multiple times in your query without having to
+re-bind the parameter.
+
+NOTE: The function should be called from beforeFactory method of the top most component in the report.
+```
+ CustomFunctions.BindParameters(this.reportContext);
+```
+
+The following syntax within your query will bind the parameter name param\_states to your query.  When using this
+do not use the parameter tab on the DataSet editor.
+```
+-- Bind to the param_states variables
+select * from customers 
+where 0=0 
+/* BIND and state like $param_states */
+```
+
+If you are using Multi-Select parameters. Bind your query to a multi-select parameter and everything will work.
+```
+-- Bind using a multi-select statement
+select * from customers 
+where 0=0 
+/* BIND and state in ($param_states) */
+```
+
+
+Finally, if you want to use the same parameter multiple times in your query, just use as needed.
+```
+-- Bind to the param_states variables
+select * from customers 
+where 0=0 
+/* BIND and state in ($param_states) */
+UNION
+select * from customers 
+where 0=0 
+/* BIND and state in ($param_states) */
+```
+
+NOTES:
+  * This control uses true JDBC parameter binding, it dramatically reduces the risk of SQL Injection attacks.
+  * When using this control, the BIND comments are ignored when working in the DataSet editor.
+  * If a parameters value is NULL, the /`*` BIND comments `*`/ are left as comments.
+  * If the datatype is string and the value is "null" the expression will be left as a comment.

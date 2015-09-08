@@ -1,0 +1,14 @@
+Allows BIRT JavaScript code to create an error message that shows up at the end of the report.
+These error messages will show up as standard BIRT exceptions.
+
+The following BIRT JavaScript in a report will add these two errors to the bottom of the report output.
+```
+// this error will show the message.
+CustomFunctions.ThrowException("User Thrown Error", reportContext);
+
+// this error will show up as an unhandled error.
+// the message shows up deep in the stack trace (click on the plus, in the report)
+CustomFunctions.ThrowException("Error Thrown No Message");
+```
+
+![http://svn.codespot.com/a/eclipselabs.org/birt-functions-lib/wiki/functions.attach/errors.png](http://svn.codespot.com/a/eclipselabs.org/birt-functions-lib/wiki/functions.attach/errors.png)

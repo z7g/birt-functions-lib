@@ -1,0 +1,6 @@
+A simple control that will wrap text at developers specified break point.  The following will break the
+content of this expression up at 20 characters.  The control will attempt to break on logical break points (white space).
+```
+CustomFunctions.TextWrap(dataSetRow["LONG_STRING"], 20)
+```
+![http://svn.codespot.com/a/eclipselabs.org/birt-functions-lib/wiki/functions.attach/wrap.png](http://svn.codespot.com/a/eclipselabs.org/birt-functions-lib/wiki/functions.attach/wrap.png)

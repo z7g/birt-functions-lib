@@ -1,0 +1,4 @@
+Shows the unique text values that have been accumulated within a grouping.
+When displayed, each of the unique items is shown on its own row.
+
+This function has been duplicated in the core product, but the extension point has been left as a simple example implementation.

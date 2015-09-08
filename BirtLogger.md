@@ -1,0 +1,20 @@
+Adding logging to your BIRT report can be difficult.  This function gives report developers access to the
+commons.logging framework from within their BIRT Script.  Using this technique your report developers can use a
+standard logging framework within their BIRT JavaScript.
+
+Adding the following statements to your report in a script or expression builder will cause the following messages to
+show up in your commons logging output formats.
+
+```
+CustomFunctions.BirtLogger("My Message");
+CustomFunctions.BirtLogger("My Warning Message", "WARNING");
+```
+
+Results in the following text getting directed to the console.
+If logging is configured to print to a file, then these messages would be sent to the file.
+```
+Sep 29, 2009 3:43:14 PM innovent.birt.functions.BirtLogger execute
+INFO: java.lang.String: My Message
+Sep 29, 2009 3:43:14 PM innovent.birt.functions.BirtLogger execute
+WARNING: java.lang.String: My Warning Message
+```

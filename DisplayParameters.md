@@ -1,0 +1,16 @@
+When working with report designs, it is often useful to know exactly what parameters were passed to a report.
+Inevitably, the developer is forced to add a control into the report that shows the parameter value.
+Using this function, you can dynamically display the parameter values in your report.
+
+Typically, we wrap this function inside a parameter value which allows us to turn parameter debugging on or off.
+Use this function to dynamically add all of the parameter information to the top of your report.  Placing the following
+code in the BeforeFactory method of the report.
+```
+if (params["paramDebug"].value) {
+	CustomFunctions.DisplayParameters(reportContext)
+}
+```
+
+Doing this will cause the following table to be inserted at the beginning of your report.
+
+![http://svn.codespot.com/a/eclipselabs.org/birt-functions-lib/wiki/functions.attach/DisplayParameters.png](http://svn.codespot.com/a/eclipselabs.org/birt-functions-lib/wiki/functions.attach/DisplayParameters.png)
